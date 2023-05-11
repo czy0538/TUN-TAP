@@ -1,0 +1,9 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://ssh-remote+frphb1.chickfrp.com/data/czy/tun-tap"
+		}
+	],
+	"remoteAuthority": "ssh-remote+frphb1.chickfrp.com",
+	"settings": {}
+}
