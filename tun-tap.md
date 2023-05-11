@@ -5,7 +5,7 @@
 go 相关的库：
 
 - tun/tap 创建[water package - github.com/net-byte/water - Go Packages](https://pkg.go.dev/github.com/net-byte/water#section-readme)
-- Provides packet processing capabilities for Go：[google/gopacket: Provides packet processing capabilities for Go (github.com)](https://github.com/google/gopacket)
+- Provides packet processing capabilities for Go：[gopacket package - github.com/google/gopacket - Go Packages](https://pkg.go.dev/github.com/google/gopacket)
 
 原理介绍：
 
