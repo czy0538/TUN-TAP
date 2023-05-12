@@ -2,7 +2,6 @@ package tun_tap
 
 import (
 	"bytes"
-	"fmt"
 	"golang.org/x/exp/slog"
 	"io"
 	"os"
@@ -14,7 +13,10 @@ func TestSession(t *testing.T) {
 	var b bytes.Buffer
 	r := strings.NewReader("hello world")
 	io.Copy(&b, r)
-	fmt.Println(b.String())
+	slog.Info(b.String())
+	r = strings.NewReader("fuck you")
+	io.Copy(&b, r)
+	slog.Info(b.String())
 
 }
 

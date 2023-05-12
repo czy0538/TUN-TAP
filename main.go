@@ -1,13 +1,11 @@
 package tun_tap
 
 import (
-	"bytes"
 	"fmt"
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
 	"github.com/net-byte/water"
 	"golang.org/x/exp/slog"
-	"io"
 )
 
 func main() {
@@ -21,16 +19,16 @@ func main() {
 		slog.Error("create iface error", err)
 		return
 	}
-	var b bytes.Buffer // A Buffer needs no initialization.
+	b := make([]byte, 65535)
 
 	for {
-		n, err := io.Copy(&b, iface)
+		n, err := iface.Read(b)
 		if err != nil {
 			slog.Error("copy error", err)
 			return
 		}
 		slog.Info("length of bytes", n)
-		packet := gopacket.NewPacket(b.Bytes(), layers.LayerTypeEthernet, gopacket.Default)
+		packet := gopacket.NewPacket(b[:n], layers.LayerTypeEthernet, gopacket.Default)
 		//if tcpLayer := packet.Layer(layers.LayerTypeTCP); tcpLayer != nil {
 		//	fmt.Println("This is a TCP packet!")
 		//	// Get actual TCP data from this layer
